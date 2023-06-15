@@ -8,7 +8,7 @@ export default function Timeline() {
     return (
         <Box>
             <CreationOptions refresh={refresh} setRefresh={setRefresh} />
-            <Posts refresh={refresh} setRefresh={setRefresh} />
+            <Posts isTimeline={true} refresh={refresh} setRefresh={setRefresh} id={null} />
         </Box>
     )
 }

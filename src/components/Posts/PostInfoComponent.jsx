@@ -1,8 +1,10 @@
 import { PostInfo,  } from "./layout";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import { BsStars } from 'react-icons/bs';
+import UsersLikeInfo from "./UsersLikeInfo";
 
-export default function PostInfoComponent({ setShowLikes, p, openComment, showLikes }) {
+export default function PostInfoComponent({ setShowLikes, p, openComment, showLikes, allLikes }) {
+
     return (
 
         <PostInfo>
@@ -20,7 +22,7 @@ export default function PostInfoComponent({ setShowLikes, p, openComment, showLi
                 size={30}
                 content={
                     <ul>
-                        {/* {allLikes.map((u, i) => {
+                        {allLikes.map((u, i) => {
                             if (u.postId === p.id) {
                                 return (
                                     <li key={i}>
@@ -29,7 +31,7 @@ export default function PostInfoComponent({ setShowLikes, p, openComment, showLi
                                 )
                             }
                         })
-                        } */}
+                        }
                     </ul>
                 }
             />

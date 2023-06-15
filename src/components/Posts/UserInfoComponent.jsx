@@ -1,24 +1,24 @@
 import { useNavigate } from 'react-router-dom';
-import { UserInfoBox, OutFollowBox } from './layout';
+import { UserInfoBox, OutFollowBox, ConfigBox } from './layout';
+import EditPostOptions from './EditPostOptions';
+import { AiOutlinePlus } from 'react-icons/ai';
 
-export default function UserInfoComponent({ setUserIdPage }) {
+export default function UserInfoComponent({ p, setUserIdPage, openEditBox, userLoggedId, openEdit }) {
     const navigate = useNavigate();
     return (
 
         <UserInfoBox>
-            <OutFollowBox>
-                <div onClick={() => {
+            <OutFollowBox
+                onClick={() => {
                     setUserIdPage(p.Users.id);
                     navigate(`/user/${p.Users.id}`);
                     localStorage.setItem('userIdPage', p.Users.id)
-                }}>
+                }}
+            >
+                <div>
                     <img src={p.Users.image} alt="user_image_post" />
                 </div>
-                <div onClick={() => {
-                    setUserIdPage(p.Users.id);
-                    navigate(`/user/${p.Users.id}`);
-                    localStorage.setItem('userIdPage', p.Users.id)
-                }}>
+                <div>
                     <h1>{p.Users.name}</h1>
                     <span>{p.createdAt >= p.updatedAt
                         ? `• ${p.createdAt.slice(11, 16)} • ${p.createdAt.slice(8, 10)}/${p.createdAt.slice(5, 7)}/${p.createdAt.slice(0, 4)}`

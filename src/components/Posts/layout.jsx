@@ -257,3 +257,25 @@ span{
     background-color: transparent;
 }
 `;
+export const Item = styled.div`
+background-color: #222;
+border-radius: 5px;
+padding: 8px;
+position: absolute;
+top: 0;
+right: -140px;
+display: block;
+flex-direction: column;
+div{
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 5px 0 5px 0;
+    background-color: transparent;
+    border-bottom: 1px solid gray;
+}
+h1{
+    align-items: center;
+    font-size: 12px;
+    font-weight: 400;
+}
+`;

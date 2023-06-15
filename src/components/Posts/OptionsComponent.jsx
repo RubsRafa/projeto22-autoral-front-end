@@ -1,14 +1,30 @@
 import { Options } from './layout';
-import { AiFillStar } from 'react-icons/ai';
+import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
+import { FaRegCommentDots } from 'react-icons/fa';
+import { BiRepost } from 'react-icons/bi';
 import { postRepost } from '../../services/repostApi';
-import { deleteLike, postLike } from '../../services/likeApi';
-import { useContext } from 'react';
+import { deleteLike, getUserLikes, postLike } from '../../services/likeApi';
+import { useContext, useState, useEffect } from 'react';
 import Context from '../../contexts/Context';
 import { toast } from 'react-toastify';
 
-export default function OptionsComponent({ p, postsLiked, selectedToComment }) {
+export default function OptionsComponent({ p, selectedToComment, refresh, setRefresh }) {
+    const [postsLiked, setPostsLiked] = useState([]);
     const { userToken } = useContext(Context);
     const token = userToken || localStorage.getItem('token');
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    async function fetchData() {
+        try {
+            const likes = await getUserLikes(token);
+            setPostsLiked(likes);
+        } catch (e) {
+            console.log(e);
+        }
+    }
 
 
     async function addRepost(postId) {
@@ -17,6 +33,7 @@ export default function OptionsComponent({ p, postsLiked, selectedToComment }) {
         }
         try {
             await postRepost(body, token);
+            setRefresh(!refresh);
         } catch (e) {
             console.log(e);
             toast.error('Não foi possível repostar. =( Tente novamente mais tarde.')

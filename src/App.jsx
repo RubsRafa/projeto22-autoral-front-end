@@ -7,7 +7,7 @@ import Provider from './contexts/Provider';
 import SignIn from "./pages/Signin";
 import SignUp from "./pages/Signup";
 import Feed from "./pages/Feed";
-
+import UserPage from "./pages/UserPage";
 
 function App() {
 
@@ -31,6 +31,7 @@ function App() {
         <Route path="/" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/feed" element={<Feed />} />
+        <Route path="/user/:id" element={<UserPage />} />
       </Routes>
     </Provider>
     </BrowserRouter>

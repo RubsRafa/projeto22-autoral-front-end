@@ -1,14 +1,33 @@
 import { useNavigate } from 'react-router-dom';
 import { CommentBox, UserComment } from './layout';
+import { getComments } from '../../services/commentApi';
+import { useContext, useEffect, useState } from 'react';
+import Context from '../../contexts/Context';
 
-export default function CommentBoxComponent({ setUserIdPage, c}) {
+export default function CommentBoxComponent({ setUserIdPage, refresh, p }) {
+    const [comments, setComments] = useState([]);
+    const { userToken } = useContext(Context);
+    const token = userToken || localStorage.getItem('token');
     const navigate = useNavigate();
+
+    async function fetchData() {
+        try {
+            const allComments = await getComments(token);
+            setComments(allComments);
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    useEffect(() => {
+        fetchData();
+    },[refresh])
     return (
         <CommentBox>
             {comments.map((c) => {
                 if (c.postId === p.id) {
                     return (
-                        <UserComment>
+                        <UserComment key={c.id}>
                             <img onClick={() => {
                                 navigate(`/user/${c.Users.id}`);
                                 setUserIdPage(c.Users.id);

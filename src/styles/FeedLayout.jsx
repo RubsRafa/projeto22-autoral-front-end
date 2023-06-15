@@ -47,3 +47,9 @@ flex-direction: column;
 // bottom: 0;
 // right: 0;
 // `;
+export const UserPostsBox = styled.div`
+background-color: transparent;
+width: 100%;
+margin: 50px auto;
+border-right: 1px solid gray;
+`;

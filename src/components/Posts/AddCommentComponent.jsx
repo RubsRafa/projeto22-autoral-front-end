@@ -1,9 +1,14 @@
 import { AddComment, CommentForm } from './layout';
 import { postComment } from '../../services/commentApi';
+import { RiSendPlaneLine } from 'react-icons/ri';
 import { toast } from 'react-toastify';
+import { useContext, useState } from 'react';
+import Context from '../../contexts/Context';
 
-export default function AddCommentComponent({userImage, p, selectedToComment}) {
+export default function AddCommentComponent({userImage, p, selectedToComment, refresh, setRefresh}) {
     const [comment, setComment] = useState('');
+    const { userToken } = useContext(Context);
+    const token = userToken || localStorage.getItem('token');
 
     async function sendComment(e, postId) {
         e.preventDefault();
