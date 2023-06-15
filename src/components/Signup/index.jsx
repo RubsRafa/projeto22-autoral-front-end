@@ -18,6 +18,15 @@ export default function SignUpComponent() {
     async function register(e) {
         e.preventDefault();
 
+        const parts = birthday.split('-');
+    
+        const day = parseInt(parts[2]);
+        const month = parseInt(parts[1]);
+        const year = parseInt(parts[0]);
+    
+        const date = new Date(year, month - 1, day);
+        const formatDate = date.toISOString();
+
         if (password !== confirmPassword) {
             toast.error('As senhas devem ser iguais!')
         } else {
@@ -27,7 +36,7 @@ export default function SignUpComponent() {
                 email,
                 password,
                 image: updatedImage,
-                birthday,
+                birthday: formatDate,
             } : {
                 name,
                 email,
