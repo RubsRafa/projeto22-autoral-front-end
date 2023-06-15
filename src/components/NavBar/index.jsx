@@ -1,7 +1,7 @@
 import { Bar, Options } from './layout';
 import { BiUser } from 'react-icons/bi';
 import { FaUserFriends, FaGamepad } from 'react-icons/fa';
-import { BsFillGearFill } from 'react-icons/bs';
+import { RiMentalHealthFill } from 'react-icons/ri';
 import { AiOutlineLogout } from 'react-icons/ai';
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
@@ -25,8 +25,10 @@ export default function NavBar() {
             }}>
                 <FaUserFriends color='#ffffff' size={30} />
             </Options>
-            <Options>
-                <BsFillGearFill color='#ffffff' size={30} />
+            <Options onClick={() => {
+                navigate('/health');
+            }}>
+                <RiMentalHealthFill color='#ffffff' size={30} />
             </Options>
             {/* <Options>
                 <FaGamepad color='#ffffff' size={30} />

@@ -53,3 +53,7 @@ width: 100%;
 margin: 50px auto;
 border-right: 1px solid gray;
 `;
+export const Title = styled.div`
+font-size: 22px;
+margin: 40px auto;
+`;

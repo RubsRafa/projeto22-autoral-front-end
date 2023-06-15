@@ -9,6 +9,7 @@ import SignUp from "./pages/Signup";
 import Feed from "./pages/Feed";
 import UserPage from "./pages/UserPage";
 import FindUserPage from "./pages/FindUser";
+import MentalHealth from "./pages/MentalHealth";
 
 function App() {
 
@@ -34,6 +35,7 @@ function App() {
         <Route path="/feed" element={<Feed />} />
         <Route path="/user/:id" element={<UserPage />} />
         <Route path="/find" element={<FindUserPage />} />
+        <Route path="/health" element={<MentalHealth />} />
       </Routes>
     </Provider>
     </BrowserRouter>
