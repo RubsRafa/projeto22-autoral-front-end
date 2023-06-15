@@ -27,8 +27,8 @@ export async function putUserHumorDiary(token, body) {
     return data;
 }
 
-export async function deleteUserHumorDiary(token, body) {
-    const { data } = await api.delete('/mental-health', body, {
+export async function deleteUserHumorDiary(token, id) {
+    const { data } = await api.delete(`/mental-health/${id}`, {
         headers:{
             Authorization: `Bearer ${token}`,
         },

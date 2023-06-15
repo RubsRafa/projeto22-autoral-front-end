@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const CreationBox = styled.div`
 width: 60%;
-margin: 0 auto;
+margin: 20px auto;
 background-color: ${props => props.color && props.color};
 border-radius: 10px;
 padding: 5px;
@@ -22,6 +22,8 @@ label{
 }
 `;
 export const TextInput = styled.input`
+align-self: center;
+margin-left: 10px;
 font-family: 'Montserrat',sans-serif;
   font-weight: 500;
   font-size: 15px;
@@ -30,7 +32,7 @@ font-family: 'Montserrat',sans-serif;
   box-shadow: 0 0 .4vw rgba(0,0,0,0.5), 0 0 0 .15vw transparent;
   border-radius: 10px;
   border: none;
-  width: 90%;
+  width: 85%;
   outline: none;
   padding: 6px;
   height: 25px;

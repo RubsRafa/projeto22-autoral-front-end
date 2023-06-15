@@ -2,8 +2,9 @@ import { useContext, useEffect, useState } from "react";
 import { HumorBox } from "./layout";
 import { BiLaugh, BiMeh, BiSad, BiSmile, BiTired } from "react-icons/bi";
 import { FiTrash, FiEdit2 } from 'react-icons/fi'
-import { getUserHumorDiary } from "../../services/healthApi";
+import { deleteUserHumorDiary, getUserHumorDiary } from "../../services/healthApi";
 import Context from "../../contexts/Context";
+import { toast } from "react-toastify";
 
 export default function Humor() {
     const [humors, setHumors] = useState([]);
@@ -30,6 +31,17 @@ export default function Humor() {
         }
     }
 
+    async function deleteItem(id) {
+        try {
+            await deleteUserHumorDiary(token, id);
+        } catch (e) {
+            console.log(e);
+        } finally {
+            toast.success('Item deletado com sucesso.');
+            fetchData();
+        }
+    }
+
     return (
         <>
             {loading && <h1>Carregando seu diário...</h1>}
@@ -49,7 +61,7 @@ export default function Humor() {
                                 <h1>
                                     {h.date.slice(8,10)}/{h.date.slice(5,7)}/{h.date.slice(2,4)}
                                 </h1>
-                                <div><FiTrash /></div>
+                                <div onClick={() => deleteItem(h.id)}><FiTrash /></div>
                                 <div><FiEdit2 /></div>
                             </div>
 

@@ -10,8 +10,9 @@ export default function CreateHumor() {
     const textRef = useRef();
     const color = "#fff";
     const size = 35;
-    const { userToken } = useContext(Context);
+    const { userToken, userImage } = useContext(Context);
     const token = userToken || localStorage.getItem('token');
+    const image = userImage || localStorage.getItem('userImage')
 
     async function saveMood() {
         try {
@@ -32,7 +33,7 @@ export default function CreateHumor() {
     return (
         <CreationBox color={humorColor}>
             <div>
-                <img src="" alt="user_image" />
+                <img src={image} alt="user_image" />
                 <TextInput autoComplete="off" ref={textRef} placeholder="Eu estou..."></TextInput>
             </div>
             <Pickers>
