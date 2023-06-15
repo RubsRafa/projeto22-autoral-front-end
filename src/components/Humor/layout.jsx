@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
 export const HumorBox = styled.div`
-/* background-color: ${props => props.color && props.color}; */
-background-color: teal;
+background-color: ${props => props.color && props.color};
 width: 70%;
-margin: 5px auto;
+margin: 8px auto;
 display: flex;
 flex-wrap: nowrap;
 justify-content: space-between;

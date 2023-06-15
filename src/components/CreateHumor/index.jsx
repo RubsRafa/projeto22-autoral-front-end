@@ -1,6 +1,8 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { ColorPicker, CreationBox, Pickers, TextInput } from "./layout";
 import { BiLaugh, BiMeh, BiSad, BiSmile, BiTired } from "react-icons/bi";
+import { postUserHumorDiary } from "../../services/healthApi";
+import Context from "../../contexts/Context";
 
 export default function CreateHumor() {
     const [humorColor, setHumorColor] = useState('#222');
@@ -8,21 +10,35 @@ export default function CreateHumor() {
     const textRef = useRef();
     const color = "#fff";
     const size = 35;
+    const { userToken } = useContext(Context);
+    const token = userToken || localStorage.getItem('token');
 
-    async function saveMood(e) {
-        console.log('humor', textRef.current.value, humorColor, mood)
+    async function saveMood() {
+        try {
+            const body = {
+                text: textRef.current.value,
+                color: humorColor,
+                mood,
+            }
+            await postUserHumorDiary(token, body);
+        } catch (e) {
+            console.log(e);
+        } finally {
+            setHumorColor('#222');
+            setMood(3)
+        }
     }
 
     return (
         <CreationBox color={humorColor}>
             <div>
                 <img src="" alt="user_image" />
-                <TextInput ref={textRef} placeholder="Eu estou..."></TextInput>
+                <TextInput autoComplete="off" ref={textRef} placeholder="Eu estou..."></TextInput>
             </div>
             <Pickers>
                 <div>
                     <h1>Escolha uma cor para o seu humor</h1>
-                    <ColorPicker onChange={(e) => setHumorColor(e.target.value)} value={humorColor} type="color"></ColorPicker>
+                    <ColorPicker autoComplete="off" onChange={(e) => setHumorColor(e.target.value)} value={humorColor} type="color"></ColorPicker>
                 </div>
                 <div>
                     <h1>Escolha uma carinha</h1>
