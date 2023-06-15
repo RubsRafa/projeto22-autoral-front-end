@@ -20,7 +20,9 @@ export default function NavBar() {
                 }}>
                 <BiUser color="#ffffff" size={30} />
             </Options>
-            <Options>
+            <Options onClick={() => {
+                navigate('/find');
+            }}>
                 <FaUserFriends color='#ffffff' size={30} />
             </Options>
             <Options>

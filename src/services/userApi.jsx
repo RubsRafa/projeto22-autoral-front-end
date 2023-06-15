@@ -17,3 +17,12 @@ export async function editUser(token, body) {
     });
     return data;
 }
+
+export async function findUsers(token, name) {
+    const { data } = await api.get(`/users/find/${name}`, {
+        headers:{
+            Authorization: `Bearer ${token}`,
+        },
+    });
+    return data;
+}
