@@ -46,7 +46,7 @@ export default function SearchUser() {
             {!loading && users[0] && 
             <Users>
                 {users?.map((u) => (
-                    <div onClick={() => {
+                    <div key={u.id} onClick={() => {
                         navigate(`/user/${u.id}`);
                         localStorage.setItem('userIdPage', u.id);
                         setUserIdPage(u.id)

@@ -3,7 +3,7 @@ import { UserInfoBox, OutFollowBox, ConfigBox } from './layout';
 import EditPostOptions from './EditPostOptions';
 import { AiOutlinePlus } from 'react-icons/ai';
 
-export default function UserInfoComponent({ p, setUserIdPage, openEditBox, userLoggedId, openEdit }) {
+export default function UserInfoComponent({ p, setUserIdPage, openEditBox, userLoggedId, openEdit, refresh, setRefresh }) {
     const navigate = useNavigate();
     return (
 
@@ -26,14 +26,17 @@ export default function UserInfoComponent({ p, setUserIdPage, openEditBox, userL
                 </div>
             </OutFollowBox>
             <ConfigBox>
-                {!p.isReposted &&
+                {!p.isReposted && (p.userId === Number(userLoggedId)) &&
                     <button onClick={() => openEdit(p.id)}>•••</button>
                 }
                 {!p.isReposted && (openEditBox.includes(p.id)) &&
-                    <EditPostOptions userReposted={p.repostedById === userLoggedId} userOwnThisPost={p.userId === userLoggedId} />}
-                <button>
-                    <AiOutlinePlus color="#fff" size={15} />
-                </button>
+                    <EditPostOptions
+                        postId={p.id}
+                        userReposted={p.repostedById === Number(userLoggedId)}
+                        userOwnThisPost={p.userId === Number(userLoggedId)}
+                        refresh={refresh}
+                        setRefresh={setRefresh}
+                    />}
             </ConfigBox>
         </UserInfoBox>
     )

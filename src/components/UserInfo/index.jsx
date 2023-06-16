@@ -22,6 +22,7 @@ export default function UserInfo({ id, refresh, setRefresh }) {
     const [editEmail, setEditEmail] = useState(false);
     const [editPassword, setEditPassword] = useState(false);
     const [editBirthday, setEditBirthday] = useState(false);
+    const [follow, setFollow] = useState(false);
     const [userFollows, setUserFollows] = useState();
     const [hasFollows, setHasFollows] = useState(0);
     const token = userToken || localStorage.getItem('token');
@@ -32,6 +33,8 @@ export default function UserInfo({ id, refresh, setRefresh }) {
             setUserInfo(getUserInfo);
 
             const follows = await getFollows(token, id);
+            const isMyFollow = await getFollows(token, userIdLogged);
+            setFollow(isMyFollow.find((f) => f.userId === userIdLogged))
             setUserFollows(follows);
             setHasFollows(follows.length);
         } catch (e) {
@@ -46,7 +49,7 @@ export default function UserInfo({ id, refresh, setRefresh }) {
         }
         try {
             await followUser(token, body);
-            setRefresh(!refresh);
+            getUserFollows();
         } catch (e) {
             console.log(e);
             toast.error('Não foi possível seguir esse usuário! Tente novamente mais tarde.')
@@ -59,7 +62,7 @@ export default function UserInfo({ id, refresh, setRefresh }) {
         }
         try {
             await unfollowUser(token, body);
-            setRefresh(!refresh);
+            getUserFollows();
         } catch (e) {
             console.log(e);
             toast.error('Não foi possível deixar de seguir esse usuário! Tente novamente mais tarde.')
@@ -81,16 +84,13 @@ export default function UserInfo({ id, refresh, setRefresh }) {
                         <h1>{userInfo.name}</h1>
                         {userInfo.birthday && <h2>birthday: {userInfo.birthday.slice(8, 10)}/{userInfo.birthday.slice(5, 7)}/{userInfo.birthday.slice(0, 4)}</h2>}
 
-                        {userFollows?.map((u) => 
-                            <>
-                            {(u.id === userInfo.id) &&
-                                <button key={u.id} onClick={() => stopFollowing(u.id)}>Unfollow</button>
-                            }
-                            {(u.id !== userInfo.id) && 
-                                <button key={u.id} onClick={() => startFollowing(u.userIdIFollow)}>Follow</button>
-                            }
-                            </>
-                        )}
+                        {follow &&
+                            <button onClick={() => stopFollowing(follow.id)}>Unfollow</button>
+                        }
+
+                        {!follow &&
+                            <button onClick={() => startFollowing(userInfo.id)}>Follow</button>
+                        }
 
 
                     </Box>}

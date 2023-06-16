@@ -7,7 +7,6 @@ import UserInfo from "../../components/UserInfo";
 
 export default function UserPage() {
     const { id } = useParams();
-    console.log('id', id)
     const [refresh, setRefresh] = useState(false);
 
     return (

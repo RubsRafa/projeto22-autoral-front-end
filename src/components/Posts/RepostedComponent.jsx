@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { RepostBox, RepostInfo } from "./layout";
 import EditPostOptions from "./EditPostOptions";
 
-export default function RepostedComponent({ p, setUserIdPage, openEdit, openEditBox, userLoggedId }) {
+export default function RepostedComponent({ p, setUserIdPage, openEdit, openEditBox, userLoggedId, refresh, setRefresh }) {
     const navigate = useNavigate();
     return (
         <>
@@ -15,8 +15,19 @@ export default function RepostedComponent({ p, setUserIdPage, openEdit, openEdit
                     <img src={p.repostedByImage} alt="image_user_reposted" />
                     <h1>{p.repostedByName}</h1><h2>repostou isso</h2>
                 </RepostInfo>
-                <button onClick={() => openEdit(p.id)}>•••</button>
-                {(openEditBox.includes(p.id)) && <EditPostOptions userReposted={p.repostedById === userLoggedId} userOwnThisPost={p.userId === userLoggedId} />}
+                {(p.repostedById === Number(userLoggedId) || p.userId === Number(userLoggedId)) &&
+                    <button onClick={() => openEdit(p.id)}>•••</button>
+                }
+                {(openEditBox.includes(p.id)) &&
+                    <EditPostOptions
+                        postId={p.id}
+                        userReposted={p.repostedById === Number(userLoggedId)}
+                        userOwnThisPost={p.userId === Number(userLoggedId)}
+                        refresh={refresh}
+                        setRefresh={setRefresh}
+                    />
+
+                }
             </RepostBox>
         </>
 

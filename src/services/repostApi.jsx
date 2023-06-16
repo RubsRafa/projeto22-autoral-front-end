@@ -9,8 +9,8 @@ export async function postRepost(body, token) {
     return data;
 }
 
-export async function deleteRepost(body, token) {
-    const { data } = await api.delete('/repost', body, {
+export async function deleteRepostApi(token, postId) {
+    const { data } = await api.delete(`/repost/${postId}`, {
         headers:{
             Authorization: `Bearer ${token}`,
         },

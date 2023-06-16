@@ -26,3 +26,12 @@ export async function getUserPostsApi(token, userId) {
     });
     return data;
 }
+
+export async function deleteUserPostApi(token, postId) {
+    const { data } = await api.delete(`/posts/${postId}`, {
+        headers:{
+            Authorization: `Bearer ${token}`,
+        },
+    });
+    return data;
+}
