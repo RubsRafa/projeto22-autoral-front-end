@@ -16,7 +16,7 @@ export default function NavBar() {
     return (
         <Bar>
             <Options onClick={() => {
-                navigate(`/feed}`);
+                navigate(`/feed`);
                 }}>
                 <AiFillHome color={color} size={size} />
             </Options>
