@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const CreationBox = styled.div`
 width: 60%;
 margin: 20px auto;
-background-color: ${props => props.color && props.color};
+background-color: #111;
 border-radius: 10px;
 padding: 5px;
 img {

@@ -6,7 +6,7 @@ import { deleteUserHumorDiary, getUserHumorDiary } from "../../services/healthAp
 import Context from "../../contexts/Context";
 import { toast } from "react-toastify";
 
-export default function Humor() {
+export default function Humor({ refresh }) {
     const [humors, setHumors] = useState([]);
     const [loading, setLoading] = useState(false);
     const { userToken } = useContext(Context);
@@ -16,7 +16,7 @@ export default function Humor() {
 
     useEffect(() => {
         fetchData();
-    }, [])
+    }, [refresh])
 
     async function fetchData() {
         try {
