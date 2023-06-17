@@ -1,13 +1,11 @@
 import styled from "styled-components";
 
 export const Title = styled.div`
-background-color: transparent;
 margin: 7px auto;
 font-size: 18px;
 font-family: 'Montserrat',sans-serif;
 `;
 export const UserInfoBox = styled.div`
-background-color: transparent;
 width: 50%;
 padding: 10px;
 `;
@@ -21,17 +19,14 @@ img{
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    background-color: transparent;
     object-fit: cover;
 }
 h1{
     margin: 20px 0 10px 0;
-    background-color: transparent;
     font-size: 22px;
 }
 h2{
     font-size: 16px;
-    background-color: transparent;
     margin-bottom: 20px;
 }
 button {
@@ -64,7 +59,6 @@ max-width: 400px;
 div{
     display: flex;
     flex-wrap: nowrap;
-    background-color: transparent;
     padding: 4px;
     border-bottom: 1px solid gray;
 }
@@ -72,23 +66,19 @@ img{
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: transparent;
     object-fit: cover;
 }
 h1{
     font-size: 18px;
     align-self: center;
     margin-left: 10px;
-    background-color: transparent;
 }
 h2 {
     font-size: 15px;
-    background-color: transparent;
     margin-bottom: 10px;
 }
 `;
 export const ImageBox = styled.div`
-background-color: transparent;
 margin: 0 auto;
 img{
     width: 160px;
@@ -98,7 +88,6 @@ img{
 }
 `;
 export const NameBox = styled.div`
-background-color: transparent;
 border-bottom: 1px solid gray;
 h1{
     font-size: 24px;
@@ -109,7 +98,6 @@ h1{
 }
 `;
 export const BirthdayBox = styled.div`
-background-color: transparent;
 border-bottom: 1px solid gray;
 h1{
     font-size: 16px;
@@ -120,7 +108,6 @@ h1{
 }
 `;
 export const EmailBox = styled.div`
-background-color: transparent;
 border-bottom: 1px solid gray;
 h1{
     font-size: 15px;
@@ -131,7 +118,6 @@ h1{
 }
 `;
 export const PasswordBox = styled.div`
-background-color: transparent;
 border-bottom: 1px solid gray;
 h1{
     font-size: 15px;

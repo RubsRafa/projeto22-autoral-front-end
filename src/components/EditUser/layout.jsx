@@ -1,14 +1,12 @@
 import styled from "styled-components";
 
 export const EditBox = styled.form`
-background-color: transparent;
 border-bottom: ${props => props.image ? props.image : '1px solid gray'};
 div{
     margin: 10px auto;
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-around;
-    background-color: transparent;
 }
 button{
     color: #8707ff;
@@ -26,7 +24,6 @@ button{
   }
 `;
 export const Input = styled.input`
-background-color: transparent;
 margin: 10px;
   font-family: 'Montserrat',sans-serif;
   font-weight: 500;

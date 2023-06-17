@@ -10,28 +10,31 @@ export default function SignUpComponent() {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [image, setImage] = useState('');
-    const [birthday, setBirthday] = useState('');
+    const [birthday, setBirthday] = useState();
     const imageRegex = /\.(jpg|jpeg|png|gif)$/i;
     let defaultImage = 'https://e7.pngegg.com/pngimages/178/595/png-clipart-user-profile-computer-icons-login-user-avatars-monochrome-black.png';
     const navigate = useNavigate();
 
     async function register(e) {
         e.preventDefault();
+        
+        let formatDate;
+        if (birthday) {
+            const parts = birthday.split('-');
 
-        const parts = birthday.split('-');
-    
-        const day = parseInt(parts[2]);
-        const month = parseInt(parts[1]);
-        const year = parseInt(parts[0]);
-    
-        const date = new Date(year, month - 1, day);
-        const formatDate = date.toISOString();
+            const day = parseInt(parts[2]);
+            const month = parseInt(parts[1]);
+            const year = parseInt(parts[0]);
+
+            const date = new Date(year, month - 1, day);
+            formatDate = date.toISOString();
+        }
 
         if (password !== confirmPassword) {
             toast.error('As senhas devem ser iguais!')
         } else {
             const updatedImage = image !== '' ? image : defaultImage;
-            const body = birthday !== '' ? {
+            const body = (birthday) ? {
                 name,
                 email,
                 password,

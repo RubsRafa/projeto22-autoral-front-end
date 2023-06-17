@@ -14,7 +14,6 @@ border-radius: 10px;
 margin: 20px auto;
 font-family: 'Montserrat', sans-serif;
 h1{
-    background-color: transparent;
     font-size: 12px;
     margin: 3px 0 0 8px;
     :hover{
@@ -22,13 +21,11 @@ h1{
     }
 }
 h2{
-    background-color: transparent;
     font-size: 15px;
     margin: 8px 0 0 10px;
 }
 `;
 export const RepostBox = styled.div`
-background-color: transparent;
 border-bottom: 1px solid gray;
 justify-content: space-between;
 font-size: 12px;
@@ -52,8 +49,8 @@ button {
     width: 25px;
     height: 25px;
     border: none;
-    background-color: transparent;
     color: #fff;
+    background-color: transparent;
     border-radius: 50%;
     :hover{
         background-color: rgba(250, 250, 250, 0.5);
@@ -63,7 +60,6 @@ button {
 `;
 export const RepostInfo = styled.div`
 justify-items: start;
-background-color: transparent;
 display: flex;
 flex-wrap: nowrap;
 :hover{
@@ -74,7 +70,6 @@ h1{
 }
 `;
 export const UserInfoBox = styled.div`
-background-color: transparent;
 display: flex;
 flex-wrap: nowrap;
 margin-top: 8px;
@@ -83,13 +78,11 @@ img{
     width: 55px;
     height: 55px;
     border-radius: 50%;
-    background-color: transparent;
     margin-bottom: 2px;
     object-fit: cover;
 }
 `;
 export const ConfigBox = styled.div`
-background-color: transparent;
 display: flex;
 flex-direction: column;
 text-align: center;
@@ -98,8 +91,8 @@ button{
     width: 25px;
     height: 25px;
     border: none;
-    background-color: transparent;
     color: #fff;
+    background-color: transparent;
     border-radius: 50%;
     :hover{
         background-color: rgba(250, 250, 250, 0.5);
@@ -108,7 +101,6 @@ button{
 }
 `;
 export const OutFollowBox = styled.div`
-background-color: transparent;
 justify-content: flex-start;
 display: flex;
 flex-wrap: nowrap;
@@ -116,7 +108,6 @@ div{
     margin: 0 0 0 4px;
     justify-content: flex-start;
     text-align: start;
-    background-color: transparent;
 }
 h1{
     font-size: 14px;
@@ -125,17 +116,14 @@ span{
     font-size: 12px;
     margin-left: 8px;
     color: gray;
-    background-color: transparent;
 }
 `;
 export const MainTextBox = styled.div`
 font-size: 15px;
 text-align: justify;
-background-color: transparent;
 margin: 7px 8px;
 `;
 export const MainImageVideoBox = styled.div`
-background-color: transparent;
 img{
     width: 100%;
     border-radius: 5px;
@@ -143,13 +131,11 @@ img{
 `;
 export const PostInfo = styled.div`
 padding: 5px;
-background-color: transparent;
 display: flex;
 flex-wrap: nowrap;
 justify-content: space-between;
 border-bottom: 1px solid gray;
 div{
-    background-color: transparent;
     display: flex;
     flex-wrap: nowrap;
     :hover{
@@ -159,13 +145,11 @@ div{
 }
 `;
 export const Options = styled.div`
-background-color: transparent;
 display: flex;
 flex-wrap: nowrap;
 justify-content: space-around;
 margin-top: 6px;
 div{
-    background-color: transparent;
     :hover{
         cursor: pointer;
         transform: scale(1.2);
@@ -177,7 +161,6 @@ export const AddComment = styled.div`
 display: flex;
 flex-wrap: nowrap;
 justify-content: space-between;
-background-color: transparent;
 width: 100%;
 
 img{
@@ -185,9 +168,6 @@ img{
     height: 50px;
     border-radius: 50%;
     object-fit: cover;
-}
-div{
-    background-color: transparent;
 }
 input{
   font-family: 'Montserrat',sans-serif;
@@ -217,19 +197,16 @@ input{
 }
 button{
     border: none;
-    background-color: transparent;
 }
 `;
 export const CommentForm = styled.form`
 margin: 5px;
 width: 100%;
-background-color: transparent;
 `;
 export const CommentBox = styled.div`
 background-color: transparent;
 `;
 export const UserComment = styled.div`
-background-color: transparent;
 display: flex;
 flex-wrap: nowrap;
 justify-content: flex-start;
@@ -244,7 +221,6 @@ img{
 div{
     display: block;
     text-align: start;
-    background-color: transparent;
 }
 h1{
     font-weight: 700;
@@ -254,7 +230,6 @@ h2{
 }
 span{
     color: gray;
-    background-color: transparent;
 }
 `;
 export const Item = styled.div`
@@ -270,7 +245,6 @@ div{
     display: flex;
     flex-wrap: nowrap;
     margin: 5px 0 5px 0;
-    background-color: transparent;
     border-bottom: 1px solid gray;
 }
 h1{

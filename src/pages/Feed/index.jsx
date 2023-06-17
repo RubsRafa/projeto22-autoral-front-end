@@ -14,7 +14,6 @@ export default function Feed() {
                     <Timeline refresh={refresh} setRefresh={setRefresh} />
                     {/* <MainInfo>
                         <Info>INFO</Info>
-                        <Chat>CHAT</Chat>
                     </MainInfo> */}
                 </MainContainer>
             </OutNavBar>

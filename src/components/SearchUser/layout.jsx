@@ -12,7 +12,6 @@ margin: 50px 0 7px 7px;
 padding: 4px;
 div{
     align-self: flex-end;
-    background-color: transparent;
 }
 button{
  outline: none;
@@ -79,7 +78,6 @@ img{
     height: 80px;
     border-radius: 15px;
     object-fit: cover;
-    background-color: transparent;
 }
 h1{
     margin-top: 4px;

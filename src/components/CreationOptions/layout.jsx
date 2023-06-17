@@ -30,14 +30,12 @@ text-align: center;
 }
 h1{
     margin: 5px 0 0 8px;
-    background-color: transparent;
     font-family: 'Montserrat',sans-serif;
     font-weight: 700;
     font-size: 15px;
 }
 `;
 export const CreationBoxText = styled.div`
-background-color: transparent;
 width: 100%;
 border-radius: 10px;
 display: flex;
@@ -54,7 +52,6 @@ h1{
     font-family: 'Montserrat',sans-serif;
     font-weight: 700;
     font-size: 15px;
-    background-color: transparent;
 }
 input{
   font-family: 'Montserrat',sans-serif;
@@ -85,7 +82,6 @@ input{
 export const UserInfo = styled.div`
 display: block;
 margin: 10px 10px 0 10px;
-background-color: transparent;
 button{
     margin-top: 5px;
     width: 30px;
@@ -99,7 +95,6 @@ export const Form = styled.form`
 display: flex;
 width: 100%;
 justify-content: space-between;
-background-color: transparent;
 margin-top: 10px;
 input{
     width: 95%;
@@ -129,7 +124,6 @@ export const Options = styled.div`
 display: flex;
 flex-wrap: nowrap;
 justify-content: space-evenly;
-background-color: transparent;
 min-width: 40px;
 max-width: 500px;
 margin: 0 auto;

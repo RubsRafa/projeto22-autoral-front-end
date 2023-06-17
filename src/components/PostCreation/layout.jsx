@@ -4,11 +4,9 @@ export const Form = styled.form`
 display: flex;
 width: 100%;
 justify-content: space-between;
-background-color: transparent;
 margin: 7px 0 7px 7px;
 div{
     align-self: flex-end;
-    background-color: transparent;
 }
 button{
  height: 25px;
@@ -60,5 +58,4 @@ export const PostInfo = styled.div`
 display: block;
 flex-wrap: wrap;
 justify-content: space-around;
-background-color: transparent;
 `;
