@@ -16,7 +16,7 @@ width: 100%;
 export const OutNavBar = styled.div`
 display: block;
 width: 100%;
-margin-left: 100px;
+margin-left: 80px;
 `;
 export const MainContainer = styled.div`
 opacity: 90%;

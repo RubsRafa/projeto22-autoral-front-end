@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const UsersChatBox = styled.div`
-width: 35%;
+width: 25%;
 background-color: #111;
 padding: 6px;
 height: 100vh;

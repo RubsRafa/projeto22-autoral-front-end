@@ -62,24 +62,25 @@ export default function ChatComponent({ chatId }) {
                     Comece a conversa!
                 </Messages>
             )}
-            {!loading && <Messages>
-                {messages?.map((m) => (
-                    <>
-                        {(m.fromId === userLogged || m.toId === userChat) &&
-                            <Me key={m.id}>
-                                <H1>{m.message}</H1>
-                                <H2>{m.time.slice(11, 13)}:{m.time.slice(14, 16)}</H2>
-                            </Me>
-                        }
-                        {(m.toId === userLogged || m.fromId === userChat) &&
-                            <OtherUser key={m.id}>
-                                <h1>{m.message}</h1>
-                                <h2>{m.time.slice(11, 13)}:{m.time.slice(14, 16)}</h2>
-                            </OtherUser>
-                        }
-                    </>
-                ))}
-            </Messages>}
+            {!loading &&
+                <Messages>
+                    {messages?.map((m) => (
+                        <>
+                            {(m.fromId === userLogged || m.toId === userChat) &&
+                                <Me key={m.id}>
+                                    <H1>{m.message}</H1>
+                                    <H2>{m.time.slice(11, 13)}:{m.time.slice(14, 16)}</H2>
+                                </Me>
+                            }
+                            {(m.toId === userLogged || m.fromId === userChat) &&
+                                <OtherUser key={m.id}>
+                                    <h1>{m.message}</h1>
+                                    <h2>{m.time.slice(11, 13)}:{m.time.slice(14, 16)}</h2>
+                                </OtherUser>
+                            }
+                        </>
+                    ))}
+                </Messages>}
             <TypeMessage>
                 <textarea onChange={(e) => setInput(e.target.value)} value={input} autoComplete="off" ref={messageRef} placeholder="Mensagem..."></textarea>
                 <button onClick={sendMessages}>

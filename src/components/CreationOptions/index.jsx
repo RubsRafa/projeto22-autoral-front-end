@@ -81,10 +81,10 @@ export default function CreationOptions({ refresh, setRefresh }) {
                     <BsImages color="#ffffff" size={30} />
                     <h1> Foto</h1>
                 </Option>
-                <Option onClick={() => startCreateMode('Video')}>
+                {/* <Option onClick={() => startCreateMode('Video')}>
                     <IoIosVideocam color="#ffffff" size={30} />
                     <h1> Vídeo</h1>
-                </Option>
+                </Option> */}
                 <Option onClick={toPost}>
                     <TbSend color="#ffffff" size={30} />
                     <h1> Postar</h1>

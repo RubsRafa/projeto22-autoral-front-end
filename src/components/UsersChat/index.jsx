@@ -24,11 +24,17 @@ export default function UsersChat({ setChatId }) {
     return (
         <UsersChatBox>
             <Title>Converse com seus amigos!</Title>
+            {!users[0] &&
+                <>
+                    <h1>Você ainda não segue ninguém...</h1>
+                    <span>Siga seus amigos para conversar com eles</span>
+                </>
+            }
             {users.map((u) => (
                 <Users onClick={() => {
                     setChatId(u.user.id);
                     localStorage.setItem('chatUserId', u.user.id)
-                    }} key={u.user.id}>
+                }} key={u.user.id}>
                     <div>
                         <img src={u.user.image} alt="user_image" />
                     </div>

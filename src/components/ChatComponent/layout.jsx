@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ChatComponentBox = styled.div`
-width: 60%;
+width: 75%;
 height: 100vh;
 position: relative;
 h1{
@@ -45,7 +45,6 @@ export const Messages = styled.div`
     border-radius: 10px;
   }
 `;
-
 export const OtherUser = styled.div`
   align-self: flex-start;
   h1{
@@ -57,17 +56,14 @@ export const OtherUser = styled.div`
     text-align: left;
   }
 `;
-
 export const Me = styled.div`
   align-self: flex-end;
 `;
-
 export const H1 = styled.h1`
   text-align: right;
   width: 70%;
   margin-left: auto;
 `;
-
 export const H2 = styled.h2`
   font-size: 16px;
   text-align: right;
