@@ -30,10 +30,11 @@ h1 {
 }
 `;
 export const Messages = styled.div`
-  height: 100vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  overflow-y: auto;
   div{
     background-color: #222;
     margin: 5px auto;
@@ -111,9 +112,5 @@ button{
   cursor: pointer;
   font-weight: bold; 
   padding: 6px;
-  :hover {
-    box-shadow: 0 0 10px #ae00ff, 0 0 25px #001eff, 0 0 50px #ae00ff;
-    transition-delay: 0.1s;
-}
 }
 `;

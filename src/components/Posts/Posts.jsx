@@ -62,7 +62,7 @@ export default function Posts({ refresh, setRefresh, id, isTimeline }) {
         } catch (e) {
             console.log(e)
             toast.error('Houve algum erro ao carregar os posts! =( Desconecte e entre novamente.');
-        } finally{
+        } finally {
             setLoading(false);
         }
     };
@@ -101,7 +101,7 @@ export default function Posts({ refresh, setRefresh, id, isTimeline }) {
     useEffect(() => {
         if (!isTimeline && (id || userIdPage)) {
             fetchDataUser();
-        } else if(isTimeline) {
+        } else if (isTimeline) {
             fetchDataAll();
         }
     }, [refresh]);
@@ -109,14 +109,17 @@ export default function Posts({ refresh, setRefresh, id, isTimeline }) {
 
     return (
         <>
-        {loading && 
-        <NoContent>Carregando informações! Aguarde que estou indo de jegue...</NoContent>
-        }
-        {!isTimeline && (id || userIdPage) && !loading && !existPost &&
-        <NoContent>Esse usuário ainda não postou nem repostou nada.</NoContent>
-        }
-            {isTimeline && !id && (!existPost || existPost === 0) && !loading &&
-                <NoContent>Ou você não segue ninguém ainda, ou você não postou nem repostou nada. No fim, a culpa é sua ❤️❤️</NoContent>
+            {loading &&
+                <NoContent>Carregando informações! Aguarde que estou indo de jegue...</NoContent>
+            }
+            {!loading && !existPost &&
+                <>
+                    {((userIdPage === userLoggedId)) ?
+                        <NoContent>Esse usuário ainda não postou nem repostou nada.</NoContent>
+                        :
+                        <NoContent>Ou você não segue ninguém ainda, ou você não postou nem repostou nada. No fim, a culpa é sua ❤️❤️</NoContent>
+                    }
+                </>
             }
             {allPosts?.map((p, i) => (
                 <BoxPost key={i}>

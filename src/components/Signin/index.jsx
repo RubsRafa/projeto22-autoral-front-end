@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { signIn } from "../../services/authApi";
@@ -10,6 +10,10 @@ export default function SignInComponent() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+
+    useEffect(() => {
+        localStorage.clear();
+    }, [])
 
     async function login(e) {
         e.preventDefault();
