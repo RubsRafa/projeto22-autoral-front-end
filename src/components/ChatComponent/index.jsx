@@ -1,22 +1,54 @@
+import { useContext, useEffect, useState } from "react";
+import { getChatMessagesApi, getChatUsersApi } from "../../services/chatApi";
 import { ChatComponentBox, Me, Messages, OtherUser, UserBar, H1, H2, TypeMessage } from "./layout";
 import { RiSendPlaneFill } from 'react-icons/ri';
+import Context from "../../contexts/Context";
 
-export default function ChatComponent() {
+export default function ChatComponent({ chatId}) {
+    const [messages, setMessages] = useState([]);
+    const { userToken, userId } = useContext(Context);
+    const token = userToken || localStorage.getItem('token');
+    const userLogged = userId || localStorage.getItem('userId');
+    const userChat = chatId || localStorage.getItem('chatUserId');
+    const [userInfo, setUserInfo] = useState();
+
+    async function getMessages() {
+        try {
+            const texts = await getChatMessagesApi(token, userChat);
+            setMessages(texts);
+            const user = await getChatUsersApi(token);
+            setUserInfo(user.find((u) => u.user.id === userChat))
+        } catch (e) {
+            console.log;
+        }
+    }
+
+    useEffect(() => {
+        getMessages();
+    }, [userChat])
     return (
         <ChatComponentBox>
             <UserBar>
-                <img src="https://coleandmarmalade.com/wp-content/uploads/2021/10/Manny-and-Dogs.jpg" alt="user_image" />
-                <h1>NOME USUÁRIO </h1>
+                <img src={userInfo.user.image} alt="user_image" />
+                <h1>{userInfo.user.name}</h1>
             </UserBar>
             <Messages>
-                <OtherUser>
-                    <h1>Outro usuário mandou mensagem</h1>
-                    <h2>horário</h2>
-                </OtherUser>
-                <Me>
-                    <H1>Eu mandei mensagem mas nãi importa aod ifa oisd fnoa isdnf oian do mas e se eu e se voce e se nos e se pu de sse mos</H1>
-                    <H2>Horario</H2>
-                </Me>
+                {messages.map((m) => (
+                    <>
+                        {m.fromId === userLogged &&
+                            <Me>
+                                <H1>{m.message}</H1>
+                                <H2>{m.time.slice(11,13)}:{m.time.slice(14,16)}</H2>
+                            </Me>
+                        }
+                        {m.toId === userLogged &&
+                            <OtherUser>
+                                <h1>{m.message}</h1>
+                                <h2>{m.time.slice(11,13)}</h2>
+                            </OtherUser>
+                        }
+                    </>
+                ))}
             </Messages>
             <TypeMessage>
                 <textarea placeholder="Mensagem..."></textarea>
