@@ -2,7 +2,7 @@ import { Bar, Options } from './layout';
 import { BiUser } from 'react-icons/bi';
 import { FaUserFriends, FaGamepad } from 'react-icons/fa';
 import { RiMentalHealthFill } from 'react-icons/ri';
-import { AiOutlineLogout, AiFillHome } from 'react-icons/ai';
+import { AiOutlineLogout, AiFillHome, AiFillMessage } from 'react-icons/ai';
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import Context from "../../contexts/Context";
@@ -31,6 +31,12 @@ export default function NavBar() {
                 navigate('/find');
             }}>
                 <FaUserFriends color={color} size={size} />
+            </Options>
+
+            <Options onClick={() => {
+                navigate('/chat')
+            }}>
+                <AiFillMessage color={color} size={size} />
             </Options>
             <Options onClick={() => {
                 navigate('/health');

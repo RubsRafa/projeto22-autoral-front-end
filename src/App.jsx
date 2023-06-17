@@ -10,6 +10,7 @@ import Feed from "./pages/Feed";
 import UserPage from "./pages/UserPage";
 import FindUserPage from "./pages/FindUser";
 import MentalHealth from "./pages/MentalHealth";
+import Chat from "./pages/Chat";
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
         <Route path="/user/:id" element={<UserPage />} />
         <Route path="/find" element={<FindUserPage />} />
         <Route path="/health" element={<MentalHealth />} />
+        <Route path="/chat" element={<Chat />} />
       </Routes>
     </Provider>
     </BrowserRouter>
