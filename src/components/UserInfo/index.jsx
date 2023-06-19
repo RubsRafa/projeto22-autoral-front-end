@@ -57,11 +57,8 @@ export default function UserInfo({ id, refresh, setRefresh }) {
     }
 
     async function stopFollowing(followId) {
-        const body = {
-            followId,
-        }
         try {
-            await unfollowUser(token, body);
+            await unfollowUser(token, followId);
             getUserFollows();
         } catch (e) {
             console.log(e);

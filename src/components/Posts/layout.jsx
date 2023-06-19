@@ -202,6 +202,9 @@ button{
 export const CommentForm = styled.form`
 margin: 5px;
 width: 100%;
+button{
+    background-color: transparent;
+}
 `;
 export const CommentBox = styled.div`
 background-color: transparent;

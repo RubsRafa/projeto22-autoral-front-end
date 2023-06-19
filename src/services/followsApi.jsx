@@ -18,8 +18,8 @@ export async function followUser(token, body) {
     return data;
 }
 
-export async function unfollowUser(token, body) {
-    const { data } = await api.delete('/follow', body, {
+export async function unfollowUser(token, followId) {
+    const { data } = await api.delete(`/follow/${followId}`, {
         headers: {
             Authorization: `Bearer ${token}`,
         },

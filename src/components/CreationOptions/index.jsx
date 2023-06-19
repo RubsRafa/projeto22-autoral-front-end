@@ -33,7 +33,7 @@ export default function CreationOptions({ refresh, setRefresh }) {
         e.preventDefault();
 
         const videoRegex = /\.(mp4|mov|avi|wmv)$/i;
-        const imageRegex = /\.(jpg|jpeg|png|gif)$/i;
+        const imageRegex = /\.(jpg|jpeg|png|gif|bmp|svg)$/i;
 
         let newType = 1;
         if (type === 'Image') newType = 2;

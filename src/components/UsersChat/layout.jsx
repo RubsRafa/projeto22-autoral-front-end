@@ -4,7 +4,6 @@ export const UsersChatBox = styled.div`
 width: 25%;
 background-color: #111;
 padding: 6px;
-height: 100vh;
 `;
 export const Title = styled.div`
 margin: 20px auto;
@@ -15,7 +14,6 @@ display: flex;
 flex-wrap: nowrap;
 background-color: #333;
 border-radius: 10px;
-overflow-y: scroll;
 margin-top: 6px;
 :hover{
     background-color: #444;

@@ -12,7 +12,7 @@ h1{
    display: none;
 }
 :hover{
-   width: 150px;
+   width: 160px;
    transition: all 0.4s ease-out;
    justify-content: space-around;
    h1{

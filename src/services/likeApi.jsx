@@ -10,13 +10,9 @@ export async function postLike(body, token) {
 }
 
 export async function deleteLike(postId, token) {
-    console.log(token);
-    const { data } = await api.delete('/like', {
+    const { data } = await api.delete(`/like/${postId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
-      },
-      data: {
-        postId,
       },
     });
     return data;
